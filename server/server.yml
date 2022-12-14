@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yelp-clone-backend
+spec:
+  selector:
+    matchLabels:
+      run: yelp-clone-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: yelp-clone-backend
+    spec:
+      containers:
+      - name: yelp-clone-backend
+        image: julianvega/yelp-clone-backend:0.0.2
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: PGUSER
+          value: "postgres"
+        - name: PGHOST
+          value: "yelp-clone-db.julianvega.ga"
+        - name: PGPASSWORD
+          value: "postgres"
+        - name: PGDATABASE
+          value: "yelp"
+        - name: PGPORT
+          value: "5432"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yelp-clone-backend
+  labels:
+    run: yelp-clone-backend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    run: yelp-clone-backend

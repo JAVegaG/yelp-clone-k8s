@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: yelp-clone-backend
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/JAVegaG/yelp-clone-k8s
+    targetRevision: main
+    path: server
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: yelp-clone
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
