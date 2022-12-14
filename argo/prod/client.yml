@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: yelp-clone-backend
+  name: yelp-clone-frontend
   namespace: argocd
 spec:
   project: default
