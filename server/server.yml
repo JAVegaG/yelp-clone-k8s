@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: yelp-clone-backend
-        image: julianvega/yelp-clone-backend:0.0.2
+        image: julianvega/yelp-clone-backend:0.1.0
         ports:
         - containerPort: 3000
         env:

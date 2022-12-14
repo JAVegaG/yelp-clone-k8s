@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/JAVegaG/yelp-clone-k8s
-    targetRevision: release_.*
+    targetRevision: #commit SHA or branch name of stg
     path: server
   destination:
     server: https://kubernetes.default.svc
