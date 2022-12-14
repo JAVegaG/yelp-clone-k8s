@@ -29,6 +29,12 @@ To retrieve the auto-generated password for the admin account using kubectl:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
 
+Then, login:
+
+```
+argocd login <ARGOCD_SERVER>
+```
+
 ### Create App
 
 First Argo CD CLI needs to be installed:
