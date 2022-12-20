@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       run: yelp-clone-frontend
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: yelp-clone-frontend
-        image: julianvega/yelp-clone-frontend:0.1.0
+        image: julianvega/yelp-clone-frontend:develop-ce82f0e
         ports:
         - containerPort: 80
 ---
